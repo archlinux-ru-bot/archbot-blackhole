@@ -1,0 +1,164 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+	<div fxFlex fxFlexOrder.xs="2">
+		<div [ngStyle.xs]="subjDescriptionMobileStyle">
+			<h1 class="subj-name">Бот archlinux_ru</h1>
+			<h5 class="subj-description">Это долгожданный арчебот на жосе</h5>
+			<button mat-raised-button color="accent" style="text-transform: uppercase;" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');">Загрузить сейчас</button>
+		</div>
+	</div>
+	<div fxFlex fxFlexOrder.xs="1">
+		<img class="subj-img" src="assets/archbot-laptop.png">
+	</div>
+</div>
+
+<div class="product-pros-container">
+	<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" class="product-pros product-pros-first">
+		<div fxFlex fxFlexOrder.xs="1" class="subj-img-container">
+			<img class="subj-img" src="assets/bukhoi-usanama.png">
+		</div>
+		<div fxFlex fxFlexOrder.xs="2">
+			<div [ngStyle.xs]="subjDescriptionMobileStyle">
+				<h3 class="subj-name">Не стыдно поговорить набухавшись</h3>
+				<h5 class="subj-description">Любите бухать? Вы очень общительный, когда прибухнёте? Бот поддержит с вами беседу, а на утро вам не будет за неё стыдно!</h5>
+			</div>
+		</div>
+	</div>
+
+	<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" class="product-pros">
+		<div fxFlex fxFlexOrder.xs="2" class="subj-img-container">
+			<div [ngStyle.xs]="subjDescriptionMobileStyle">
+				<h3 class="subj-name">Вы можете вырастить себе сына</h3>
+				<h5 class="subj-description">Бот запоминает всё, что ему пишут, так что, если уделять ему достаточно внимания, он может стать сыном, которого у вас никогда не было!</h5>
+			</div>
+		</div>
+		<div fxFlex fxFlexOrder.xs="1">
+			<img class="subj-img" src="assets/bot-son.png">
+		</div>
+	</div>
+
+	<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" class="product-pros">
+		<div fxFlex fxFlexOrder.xs="1" class="subj-img-container">
+			<img class="subj-img" src="assets/ban-with-archbot.png">
+		</div>
+		<div fxFlex fxFlexOrder.xs="2">
+			<div [ngStyle.xs]="subjDescriptionMobileStyle">
+				<h3 class="subj-name">Почувствовать власть</h3>
+				<h5 class="subj-description">На работе начальник - самодур? Даже жена вас строит? Не беда, баньте с арчеботом!</h5>
+			</div>
+		</div>
+	</div>
+
+	<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" class="product-pros">
+		<div fxFlex fxFlexOrder.xs="2" class="subj-img-container">
+			<div [ngStyle.xs]="subjDescriptionMobileStyle">
+				<h3 class="subj-name">Все знают, кто есть кто</h3>
+				<h5 class="subj-description">Благодаря инновационной системе ачивок и оценок арчебота!</h5>
+			</div>
+		</div>
+		<div fxFlex fxFlexOrder.xs="1">
+			<img class="subj-img" src="assets/rason-archbot-profile.png">
+		</div>
+	</div>
+</div>
+
+<div class="customer-review-container">
+	<h1 class="customer-review-header">Отзывы наших пользователей</h1>
+
+	<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="16px">
+		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
+			<mat-card-header>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/nxshock.png"></div>
+				<mat-card-title>Andrew</mat-card-title>
+				<mat-card-subtitle>Админ арчечата</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					@IlyaFedin ты заебал
+				</p>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
+			<mat-card-header>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/vielfrass.png"></div>
+				<mat-card-title>Captain Jack Vielfrass</mat-card-title>
+				<mat-card-subtitle>Губернатор Итальянской области</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					Ууу. Жосе. Бан.
+				</p>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
+			<mat-card-header>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/gnupetrovich.png"></div>
+				<mat-card-title>Vladislav K.</mat-card-title>
+				<mat-card-subtitle>Разработчик Мишани</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					Опять рофлы пошли
+				</p>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
+			<mat-card-header>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/julian_cm.png"></div>
+				<mat-card-title>Julian =) Coffee</mat-card-title>
+				<mat-card-subtitle>Ведущий инженер Fibonacci Enterprises</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					Бот не считает фибоначчу и написан не на питоне
+				</p>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
+			<mat-card-header>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/olegchir.png"></div>
+				<mat-card-title>Oleg Chirukhin</mat-card-title>
+				<mat-card-subtitle>Создатель арчечата</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					Бери шире, в качестве инита может быть твой бот
+				</p>
+			</mat-card-content>
+		</mat-card>
+	
+		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
+			<mat-card-header>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/loremipsum.png"></div>
+				<mat-card-title>Lorem Ipsum</mat-card-title>
+				<mat-card-subtitle>Иностранец</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Etiam massa neque, tempus sit amet dignissim vitae, commodo sodales nibh.
+					Duis risus mi, sollicitudin a sodales ut, blandit id est.
+					Maecenas congue dui nunc, viverra auctor justo vestibulum sed.
+					Pellentesque mollis turpis ut sem facilisis, at lacinia neque fringilla.
+					Cras sollicitudin massa non erat tempus, vitae semper justo pharetra.
+					Nullam dolor neque, aliquet ac lorem auctor, sagittis rutrum lacus.
+					Curabitur dignissim mi ut pharetra porttitor.
+					Duis laoreet nibh sed nisl euismod fermentum.
+					Phasellus aliquet diam libero, consequat pellentesque lorem rhoncus vel.
+					Etiam tincidunt nibh vitae est pharetra, non lacinia augue suscipit.
+					Proin quis dui felis. Morbi in sollicitudin dui.
+					Aliquam finibus elementum sagittis. 
+				</p>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
+
+<div class="for-open-counter">
+	Релиз через:
+	<br>
+	<span class="counter-number">{{dateDiff.days}}</span> дней <span class="counter-number">{{dateDiff.hours}}</span> часов <span class="counter-number">{{dateDiff.minutes}}</span> минут <span class="counter-number">{{dateDiff.seconds}}</span> секунд
+</div>
