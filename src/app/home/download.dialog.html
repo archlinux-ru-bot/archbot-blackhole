@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Загрузка</h1>
+<div mat-dialog-content>
+		<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0&autoplay=1&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="max-width: 100%;" allowfullscreen></iframe>
+</div>
+<div mat-dialog-actions align="end">
+	<button mat-button mat-dialog-close style="text-transform: uppercase;">Отмена</button>
+	<button mat-button *ngIf="!isBeforeOpenDate" (click)="onAccept()" cdkFocusInitial style="text-transform: uppercase;">Загрузить все равно</button>
+</div>

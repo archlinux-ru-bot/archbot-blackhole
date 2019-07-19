@@ -16,6 +16,10 @@ footer {
 	margin-top: 40px;
 }
 
+footer a {
+	color: white;
+}
+
 .footer-center {
 	width: 100%;
 	text-align: center;

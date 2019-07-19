@@ -1,20 +1,26 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" class="description-container">
 	<div fxFlex fxFlexOrder.xs="2">
 		<div [ngStyle.xs]="subjDescriptionMobileStyle">
 			<h1 class="subj-name">Бот archlinux_ru</h1>
 			<h5 class="subj-description">Это долгожданный арчебот на жосе</h5>
-			<button mat-raised-button color="accent" style="text-transform: uppercase;" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');">Загрузить сейчас</button>
+			<button mat-raised-button color="accent" style="text-transform: uppercase;" (click)="openDownloadDialog()">Загрузить сейчас</button>
 		</div>
 	</div>
 	<div fxFlex fxFlexOrder.xs="1">
-		<img class="subj-img" src="assets/archbot-laptop.png">
+		<img class="subj-img" src="assets/archbot-laptop.webp" alt="Скриншот с арчеботом в ноутбуке">
 	</div>
+</div>
+
+<div *ngIf="needCounter" class="for-open-counter">
+	Релиз через:
+	<br>
+	<span class="counter-number">{{displayedDateDiff.days}}</span>&nbsp;дней <span class="counter-number">{{displayedDateDiff.hours}}</span>&nbsp;часов <span class="counter-number">{{displayedDateDiff.minutes}}</span>&nbsp;минут <span class="counter-number">{{displayedDateDiff.seconds}}</span>&nbsp;секунд
 </div>
 
 <div class="product-pros-container">
 	<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" class="product-pros product-pros-first">
 		<div fxFlex fxFlexOrder.xs="1" class="subj-img-container">
-			<img class="subj-img" src="assets/bukhoi-usanama.png">
+			<img class="subj-img" src="assets/screenshots/bukhoi-usanama.webp" alt="Скриншот бухих разговоров usanama с Мишаней">
 		</div>
 		<div fxFlex fxFlexOrder.xs="2">
 			<div [ngStyle.xs]="subjDescriptionMobileStyle">
@@ -32,13 +38,13 @@
 			</div>
 		</div>
 		<div fxFlex fxFlexOrder.xs="1">
-			<img class="subj-img" src="assets/bot-son.png">
+			<img class="subj-img" src="assets/screenshots/bot-son.webp" alt="Владислав жалуется usanama на то, чему он научил его бота">
 		</div>
 	</div>
 
 	<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" class="product-pros">
 		<div fxFlex fxFlexOrder.xs="1" class="subj-img-container">
-			<img class="subj-img" src="assets/ban-with-archbot.png">
+			<img class="subj-img" src="assets/screenshots/ban-with-archbot.webp" alt="Скриншот бана арчеботом">
 		</div>
 		<div fxFlex fxFlexOrder.xs="2">
 			<div [ngStyle.xs]="subjDescriptionMobileStyle">
@@ -56,7 +62,7 @@
 			</div>
 		</div>
 		<div fxFlex fxFlexOrder.xs="1">
-			<img class="subj-img" src="assets/rason-archbot-profile.png">
+			<img class="subj-img" src="assets/screenshots/rason-archbot-profile.webp" alt="Скриншот профиля расона в арчеботе">
 		</div>
 	</div>
 </div>
@@ -67,7 +73,7 @@
 	<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="16px">
 		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
 			<mat-card-header>
-				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/nxshock.png"></div>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/nxshock.webp" alt="Аватар Andrew"></div>
 				<mat-card-title>Andrew</mat-card-title>
 				<mat-card-subtitle>Админ арчечата</mat-card-subtitle>
 			</mat-card-header>
@@ -80,7 +86,7 @@
 
 		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
 			<mat-card-header>
-				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/vielfrass.png"></div>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/vielfrass.webp" alt="Аватар Captain jack Vielfrass"></div>
 				<mat-card-title>Captain Jack Vielfrass</mat-card-title>
 				<mat-card-subtitle>Губернатор Итальянской области</mat-card-subtitle>
 			</mat-card-header>
@@ -93,7 +99,7 @@
 
 		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
 			<mat-card-header>
-				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/gnupetrovich.png"></div>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/gnupetrovich.webp" alt="Аватар Vladislav K."></div>
 				<mat-card-title>Vladislav K.</mat-card-title>
 				<mat-card-subtitle>Разработчик Мишани</mat-card-subtitle>
 			</mat-card-header>
@@ -106,7 +112,7 @@
 
 		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
 			<mat-card-header>
-				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/julian_cm.png"></div>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/julian_cm.webp" alt="Аватар Julian =) Coffee"></div>
 				<mat-card-title>Julian =) Coffee</mat-card-title>
 				<mat-card-subtitle>Ведущий инженер Fibonacci Enterprises</mat-card-subtitle>
 			</mat-card-header>
@@ -119,7 +125,7 @@
 
 		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
 			<mat-card-header>
-				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/olegchir.png"></div>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/olegchir.webp" alt="Аватар Oleg Chirukhin"></div>
 				<mat-card-title>Oleg Chirukhin</mat-card-title>
 				<mat-card-subtitle>Создатель арчечата</mat-card-subtitle>
 			</mat-card-header>
@@ -132,7 +138,7 @@
 	
 		<mat-card [fxFlex]="customerReviewFlex" class="customer-review-card">
 			<mat-card-header>
-				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/loremipsum.png"></div>
+				<div mat-card-avatar><img class="customer-avatar" src="assets/avatars/loremipsum.webp" alt="Какой-то негр"></div>
 				<mat-card-title>Lorem Ipsum</mat-card-title>
 				<mat-card-subtitle>Иностранец</mat-card-subtitle>
 			</mat-card-header>
@@ -155,10 +161,4 @@
 			</mat-card-content>
 		</mat-card>
 	</div>
-</div>
-
-<div class="for-open-counter">
-	Релиз через:
-	<br>
-	<span class="counter-number">{{dateDiff.days}}</span> дней <span class="counter-number">{{dateDiff.hours}}</span> часов <span class="counter-number">{{dateDiff.minutes}}</span> минут <span class="counter-number">{{dateDiff.seconds}}</span> секунд
 </div>

@@ -1,3 +1,18 @@
+.description-container {
+	padding-bottom: 4rem;
+}
+
+.for-open-counter {
+	font-size: 2.5rem;
+	font-weight: 300;
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.counter-number {
+	font-size: 3.5rem;
+}
+
 h1.subj-name {
 	font-size: 2.5rem;
 	font-weight: 300;
@@ -27,8 +42,7 @@ img.subj-img {
 }
 
 .product-pros-container {
-	padding-top: 6rem;
-	padding-bottom: 6rem;
+	padding-bottom: 4rem;
 }
 
 .product-pros {
@@ -47,7 +61,7 @@ img.subj-img {
 }
 
 .customer-review-container {
-	padding-bottom: 6rem;
+	padding-bottom: 4rem;
 }
 
 .customer-review-header {
@@ -65,15 +79,4 @@ img.subj-img {
 .customer-avatar {
 	width: 100%;
 	height: 100%;
-}
-
-.for-open-counter {
-	font-size: 2.5rem;
-	font-weight: 300;
-	text-align: center;
-	margin-bottom: 6rem;
-}
-
-.counter-number {
-	font-size: 3.5rem;
 }
