@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import * as moment from 'moment';
+import config from '../../config';
 
-const COUNTER_AFTER_RELEASE = true;
-const OPEN_DATE = moment.utc([2019, 6, 22, 19, 0, 0]).valueOf();
-
-let loadMoment = moment();
+const OPEN_DATE_UNIX = moment.utc(config.open_date).valueOf();
 
 @Component({
 	selector: 'app-home',
@@ -21,24 +19,27 @@ export class HomeComponent implements OnInit {
 	constructor(public dialog: MatDialog) {}
 
 	ngOnInit() {
-		this,this.initCoutner();
-		this.updateDateDiff(this.getNeededDate());
+		this.updateCounter(this.getNeededDate());
 	}
 
 	openDownloadDialog() {
 		this.dialog.open(DownloadDialog);
 	}
 
-	initCoutner() {
-		let openDateDiff = loadMoment.diff(OPEN_DATE);
+	isCounterNeed() {
+		let openDateDiff = moment().diff(OPEN_DATE_UNIX);
 
-		if(loadMoment.isBefore(OPEN_DATE)) {
+		if(moment().isBefore(OPEN_DATE_UNIX)) {
 			if(moment.duration(openDateDiff).months() === 0) {
-				this.needCounter = true;
+				return true;
+			} else {
+				return false;
 			}
 		} else {
-			if(COUNTER_AFTER_RELEASE) {
-				this.needCounter = true;
+			if(config.counter_after_release) {
+				return true;
+			} else {
+				return false;
 			}
 		}
 	}
@@ -46,8 +47,8 @@ export class HomeComponent implements OnInit {
 	getNeededDate() {
 		let dateToDiff = 0;
 
-		if(loadMoment.isBefore(OPEN_DATE)) {
-			dateToDiff = OPEN_DATE;
+		if(moment().isBefore(OPEN_DATE_UNIX)) {
+			dateToDiff = OPEN_DATE_UNIX;
 		} else {
 			dateToDiff = this.generateDate();
 		}
@@ -57,33 +58,42 @@ export class HomeComponent implements OnInit {
 
 	generateDate() {
 		let isFuture = Math.random() >= 0.5;
-		let thisYear = loadMoment.year();
-		let thisMonth = loadMoment.month();
+		let thisYear = moment().year();
+		let thisMonth = moment().month();
 		let randomDay = 0;
 		let randomHour = Math.round(Math.random() * 24);
 
 		if(isFuture) {
-			randomDay = Math.round(Math.random() * loadMoment.daysInMonth()) + loadMoment.date();
+			randomDay = Math.round(Math.random() * moment().daysInMonth()) + moment().date();
 
-			if(randomDay > loadMoment.daysInMonth()) {
-				randomDay = randomDay - (randomDay - loadMoment.daysInMonth());
+			if(randomDay > moment().daysInMonth()) {
+				randomDay = randomDay - (randomDay - moment().daysInMonth());
 			}
 		} else {
-			randomDay = Math.round(Math.random() * (loadMoment.date() - 1));
+			randomDay = Math.round(Math.random() * (moment().date() - 1));
 		}
 
 		return moment([thisYear, thisMonth, randomDay, randomHour, 0 ,0]).valueOf();
 	}
 
-	updateDateDiff(dateToDiff) {
-		const dateDiff = moment().diff(dateToDiff);
-		const dateDuration = moment.duration(dateDiff);
-		this.displayedDateDiff.days = -dateDuration.days();
-		this.displayedDateDiff.hours = -dateDuration.hours();
-		this.displayedDateDiff.minutes = -dateDuration.minutes();
-		this.displayedDateDiff.seconds = -dateDuration.seconds();
+	updateCounter(dateToDiff) {
+		this.needCounter = this.isCounterNeed();
 
-		setTimeout(() => this.updateDateDiff.call(this, dateToDiff), 1000);
+		if(config.nan_counter_after_release && !moment().isBefore(OPEN_DATE_UNIX)) {
+			this.displayedDateDiff.days = NaN;
+			this.displayedDateDiff.hours = NaN;
+			this.displayedDateDiff.minutes = NaN;
+			this.displayedDateDiff.seconds = NaN;
+		} else {
+			const dateDiff = moment().diff(dateToDiff);
+			const dateDuration = moment.duration(dateDiff);
+			this.displayedDateDiff.days = -dateDuration.days();
+			this.displayedDateDiff.hours = -dateDuration.hours();
+			this.displayedDateDiff.minutes = -dateDuration.minutes();
+			this.displayedDateDiff.seconds = -dateDuration.seconds();
+		}
+
+		setTimeout(() => this.updateCounter.call(this, dateToDiff), 1000);
 	}
 }
 
@@ -92,7 +102,7 @@ export class HomeComponent implements OnInit {
 	templateUrl: 'download.dialog.html',
 })
 export class DownloadDialog {
-	isBeforeOpenDate = loadMoment.isBefore(OPEN_DATE);
+	isBeforeOpenDate = moment().isBefore(OPEN_DATE_UNIX);
 
 	constructor(public dialogRef: MatDialogRef<DownloadDialog>) {}
 
